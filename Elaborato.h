@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <stdexcept>
 
 class Observer{
 public:
@@ -24,6 +25,38 @@ public:
     virtual void notify() = 0;
 
     virtual ~Subject() = default;
+};
+
+class Informazioni{
+private:
+    int day, month, year;
+    std::vector<int> days = {30, 28, 30, 31, 30, 31, 30, 31, 30, 31, 30, 31};
+public:
+    Informazioni(int d, int m, int y): day(d), month(m), year(y){}
+
+    void setInfo(int d, int m, int y){
+        if(y > 2026){
+            if(y % 4 == 0) {
+                days[1] = 29;  // anno bisestile
+            }
+            if(m<0 || m>12){
+                std::invalid_argument("Mese non valido");
+            }
+            if(d<0 || d>days[m-1]){
+                std::invalid_argument("Giorno non valido");
+            }
+            day = d;
+            month = m;
+            year = y;
+        }
+        else{
+            std::invalid_argument("Anno non valido");
+        }
+    }
+
+    std::string getInfo(){
+        return std::to_string(day) + "/" + std::to_string(month) + "/" + std::to_string(year);
+    }
 };
 
 #endif //ELABORATO_PROGRAMMAZIONE_ELABORATO_H
