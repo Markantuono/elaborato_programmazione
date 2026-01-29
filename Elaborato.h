@@ -35,7 +35,7 @@ public:
     Informazioni(int d, int m, int y): day(d), month(m), year(y){}
 
     void setInfo(int d, int m, int y){
-        if(y > 2026){
+        if(y >= 2026){
             if(y % 4 == 0) {
                 days[1] = 29;  // anno bisestile
             }
@@ -56,6 +56,40 @@ public:
 
     std::string getInfo(){
         return std::to_string(day) + "/" + std::to_string(month) + "/" + std::to_string(year);
+    }
+};
+
+class Item{
+private:
+    std::string name;
+    Informazioni info;
+    int quantity;
+    double price;
+public:
+    Item(std::string& n, Informazioni& i, int q, double p): name(n), info(i), quantity(q), price(p){}
+
+    void setQuantity(int q){
+        quantity = q;
+    }
+
+    void setPrice(int p){
+        price = p;
+    }
+
+    std::string getName(){
+        return name;
+    }
+
+    int getQuantity(){
+        return quantity;
+    }
+
+    double getPrice(){
+        return price;
+    }
+
+    Informazioni getInfo(){
+        return info;
     }
 };
 
