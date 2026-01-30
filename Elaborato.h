@@ -30,11 +30,13 @@ public:
 class Informazioni{
 private:
     int day, month, year;
+    std::string brand;
+    std::vector<std::string> ingredients;
     std::vector<int> days = {30, 28, 30, 31, 30, 31, 30, 31, 30, 31, 30, 31};
 public:
-    Informazioni(int d, int m, int y): day(d), month(m), year(y){}
+    Informazioni(int d, int m, int y, std::string& b, std::vector<std::string>& i, std::vector<int>& ds): day(d), month(m), year(y), brand(b), ingredients(i), days(ds){}
 
-    void setInfo(int d, int m, int y){
+    void setDate(int d, int m, int y){
         if(y >= 2026){
             if(y % 4 == 0) {
                 days[1] = 29;  // anno bisestile
@@ -54,9 +56,19 @@ public:
         }
     }
 
-    std::string getInfo(){
+    std::string getDate(){
         return std::to_string(day) + "/" + std::to_string(month) + "/" + std::to_string(year);
     }
+
+    std::string getBrand(){
+        return brand;
+    }
+
+    std::string getIngredients(){
+        for(auto const i : ingredients){
+            return i;
+        }
+    };
 };
 
 class Item{
