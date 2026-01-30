@@ -128,4 +128,32 @@ public:
     }
 };
 
+class List: public Subject{
+private:
+    std::string shoppingList;
+    std::vector<Item*> items;
+    std::vector<Observer*> observers;
+    double totalPrice;
+public:
+    List(std::string& sl,std::vector<Item*>& i, std::vector<Observer*>& o): shoppingList(sl), items(i), observers(o){}
+
+    void addItem(){
+        for (auto const i : items){
+            items.push_back(i);
+        }
+    }
+
+    void findItem(){}
+
+    void removeItem(){}
+
+    void getTotalPrice(){}
+
+    virtual void attach(Observer* o) override;
+    virtual void detach(Observer* o) override;
+    virtual void notify() override;
+
+    virtual ~List() = default;
+};
+
 #endif //ELABORATO_PROGRAMMAZIONE_ELABORATO_H
