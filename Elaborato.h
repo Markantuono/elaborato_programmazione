@@ -71,14 +71,33 @@ public:
     };
 };
 
+enum class Category{
+    Frutta,
+    Verdura,
+    Latticini,
+    Carne,
+    Pesce,
+    Dolci,
+    Snack,
+    Bevande,
+    Alcolici,
+    Confezionati,
+    Non_alimentari,
+};
+
 class Item{
 private:
     std::string name;
     Informazioni info;
+    Category category;
     int quantity;
     double price;
 public:
-    Item(std::string& n, Informazioni& i, int q, double p): name(n), info(i), quantity(q), price(p){}
+    Item(std::string& n, Informazioni& i, Category& c, int q, double p): name(n), info(i),category(c), quantity(q), price(p){}
+
+    void setCategory(Category newCategory){
+        category = newCategory;
+    }
 
     void setQuantity(int q){
         quantity = q;
@@ -90,6 +109,10 @@ public:
 
     std::string getName(){
         return name;
+    }
+
+    Category getCategory(){
+        return category;
     }
 
     int getQuantity(){
