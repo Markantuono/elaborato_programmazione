@@ -176,4 +176,18 @@ public:
     virtual ~List() = default;
 };
 
+class User: public Observer{
+private:
+    std::string name;
+    List* subject;
+public:
+    User(List* l);
+
+    virtual void update() override;
+    virtual void attach() override;
+    virtual void detach() override;
+
+    virtual ~User() = default;
+};
+
 #endif //ELABORATO_PROGRAMMAZIONE_ELABORATO_H
