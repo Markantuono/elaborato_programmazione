@@ -153,7 +153,14 @@ public:
         return items.end();
     }
 
-    void removeItem(){}
+    void removeItem(std::string& name){
+        auto it = findItem(name);
+
+        if(it != items.end()){
+            delete *it;
+            items.erase(it);
+        }
+    }
 
     void getTotalPrice(){}
 
