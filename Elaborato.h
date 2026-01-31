@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
+#include <algorithm>
 
 class Observer{
 public:
@@ -120,7 +121,7 @@ public:
     }
 
     double getPrice(){
-        return price;
+        return price * quantity;
     }
 
     Informazioni getInfo(){
@@ -138,12 +139,19 @@ public:
     List(std::string& sl,std::vector<Item*>& i, std::vector<Observer*>& o): shoppingList(sl), items(i), observers(o){}
 
     void addItem(){
-        for (auto const i : items){
-            items.push_back(i);
+        for (auto const i : items) {
+                items.push_back(i);
         }
     }
 
-    void findItem(){}
+    auto findItem(std::string& name){
+        for (auto it = items.begin(); it != items.end(); ++it){
+            if (*it && (*it)->getName() == name) {
+                return it;
+            }
+        }
+        return items.end();
+    }
 
     void removeItem(){}
 
