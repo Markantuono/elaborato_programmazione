@@ -162,7 +162,12 @@ public:
         }
     }
 
-    void getTotalPrice(){}
+    double getTotalPrice(){
+        for (auto it = items.begin(); it != items.end(); ++it){
+            totalPrice += (*it)->getPrice();
+        }
+        return totalPrice;
+    }
 
     virtual void attach(Observer* o) override;
     virtual void detach(Observer* o) override;
