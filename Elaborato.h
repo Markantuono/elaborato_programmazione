@@ -67,9 +67,11 @@ public:
     }
 
     std::string getIngredients(){
+        std::string result;
         for(auto const i : ingredients){
-            return i;
+            result += i + ", ";
         }
+        return result;
     };
 };
 
@@ -102,10 +104,16 @@ public:
     }
 
     void setQuantity(int q){
+        if (q <= 0) {
+            throw std::invalid_argument("Quantità non valida");
+        }
         quantity = q;
     }
 
     void setPrice(int p){
+        if(p <= 0) {
+            throw std::invalid_argument("Prezzo non valido");
+        }
         price = p;
     }
 
@@ -170,7 +178,6 @@ public:
             totalPrice += (*it)->getPrice();
         }
         return totalPrice;
-        notify();
     }
 
     virtual void attach(Observer* o) override{
