@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
 #include <stdexcept>
 #include <algorithm>
 
@@ -133,14 +134,14 @@ class List: public Subject{
 private:
     std::string shoppingList;
     std::vector<Item*> items;
-    std::vector<Observer*> observers;
-    double totalPrice;
+    std::list<Observer*> observers;
 public:
-    List(std::string& sl,std::vector<Item*>& i, std::vector<Observer*>& o): shoppingList(sl), items(i), observers(o){}
+    List(std::string& sl,std::vector<Item*>& i, std::list<Observer*>& o): shoppingList(sl), items(i), observers(o){}
 
     void addItem(){
         for (auto const i : items) {
                 items.push_back(i);
+                notify();
         }
     }
 
@@ -159,19 +160,32 @@ public:
         if(it != items.end()){
             delete *it;
             items.erase(it);
+            notify();
         }
     }
 
     double getTotalPrice(){
+        double totalPrice = 0;
         for (auto it = items.begin(); it != items.end(); ++it){
             totalPrice += (*it)->getPrice();
         }
         return totalPrice;
+        notify();
     }
 
-    virtual void attach(Observer* o) override;
-    virtual void detach(Observer* o) override;
-    virtual void notify() override;
+    virtual void attach(Observer* o) override{
+        observers.push_back(o);
+    };
+
+    virtual void detach(Observer* o) override{
+        observers.remove(o);
+    };
+
+    virtual void notify() override{
+        for(auto it = std::begin(observers); it != observers.end(); it++){
+            (*it)->update();
+        }
+    };
 
     virtual ~List() = default;
 };
