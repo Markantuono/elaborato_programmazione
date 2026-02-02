@@ -96,8 +96,9 @@ private:
     Category category;
     int quantity;
     double price;
+    bool purchased;
 public:
-    Item(std::string& n, Informazioni& i, Category& c, int q, double p): name(n), info(i),category(c), quantity(q), price(p){}
+    Item(std::string& n, Informazioni& i, Category& c, int q, double p, bool pc = false): name(n), info(i), category(c), quantity(q), price(p), purchased(pc){}
 
     void setCategory(Category newCategory){
         category = newCategory;
@@ -117,6 +118,10 @@ public:
         price = p;
     }
 
+    void setStatus(bool value){
+        purchased = value;
+    }
+
     std::string getName(){
         return name;
     }
@@ -131,6 +136,10 @@ public:
 
     double getPrice(){
         return price * quantity;
+    }
+
+    bool isPurchased(){
+        return purchased;
     }
 
     Informazioni getInfo(){
@@ -165,9 +174,20 @@ public:
     void setNewQuantity(std::string& name, int newQuantity){
         auto it = findItem(name);
 
-        if (it != items.end()) {
+        if (it != items.end()){
             if ((*it)->getQuantity() != newQuantity) {
                 (*it)->setQuantity(newQuantity);
+                notify();
+            }
+        }
+    }
+
+    void setPurchasedStatus(std::string& name, bool purchased){
+        auto it = findItem(name);
+
+        if(it != items.end()){
+            if((*it)->isPurchased() != purchased){
+                (*it)->setStatus(purchased);
                 notify();
             }
         }
