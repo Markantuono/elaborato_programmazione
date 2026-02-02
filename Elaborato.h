@@ -170,6 +170,7 @@ public:
                 (*it)->setQuantity(newQuantity);
                 notify();
             }
+        }
     }
 
     void removeItem(std::string& name){
@@ -192,17 +193,17 @@ public:
 
     virtual void attach(Observer* o) override{
         observers.push_back(o);
-    };
+    }
 
     virtual void detach(Observer* o) override{
         observers.remove(o);
-    };
+    }
 
     virtual void notify() override{
         for(auto it = std::begin(observers); it != observers.end(); it++){
             (*it)->update();
         }
-    };
+    }
 
     virtual ~List() = default;
 };
