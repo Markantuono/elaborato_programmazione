@@ -215,6 +215,31 @@ public:
         return totalPrice;
     }
 
+    std::string showList() const{
+        double totalPurchased = 0;
+        double totalNotPurchased = 0;
+
+        std::cout << "-PRODOTTI ACQUISTATI-" << std::endl;
+        for(auto const i : items){
+            if(i->isPurchased()){
+                totalPurchased += i->getPrice();
+                std::cout << "-" << i->getName() << "x" << i->getQuantity() << std::endl;
+            }
+        }
+        std::cout << "Totale speso:" << totalPurchased << "€" << std::endl;
+
+        std::cout << "-PRODOTTI DA ACQUISTARE-" << std::endl;
+        for(const auto i : items){
+            if (!i->isPurchased()){
+                totalNotPurchased += i->getPrice();
+                std::cout << "-" << i->getName() << "x" << i->getQuantity() << std::endl;
+            }
+        }
+        std::cout << "Totale da spendere:" << totalNotPurchased << "€" << std::endl;
+
+        std::cout << "Totale complessivo:" << totalPurchased + totalNotPurchased << "€" << std::endl;
+    }
+
     virtual void attach(Observer* o) override{
         observers.push_back(o);
     }
@@ -241,6 +266,7 @@ public:
 
     virtual void update(List* l){
         std::cout << "Numero prodotti:" << l->getItemCount() << std::endl;
+        std::cout << "Lista completa:" << l->showList() << std::endl;
     }
 
     virtual void attach(List* l){
