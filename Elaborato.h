@@ -211,13 +211,18 @@ public:
 class User: public Observer{
 private:
     std::string name;
-    List* subject;
+    std::vector<List*> lists;
 public:
     User(List* l);
 
-    virtual void update() override;
-    virtual void attach() override;
-    virtual void detach() override;
+    virtual void update();
+
+    virtual void attach(List* l){
+        lists.push_back(l);
+        l->attach(this);
+    }
+
+    virtual void detach();
 
     virtual ~User() = default;
 };
