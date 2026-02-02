@@ -183,6 +183,10 @@ public:
         }
     }
 
+    int getItemCount() const {
+        return items.size();
+    }
+
     double getTotalPrice(){
         double totalPrice = 0;
         for (auto it = items.begin(); it != items.end(); ++it){
@@ -215,7 +219,9 @@ private:
 public:
     User(List* l);
 
-    virtual void update();
+    virtual void update(List* l){
+        std::cout << "Numero prodotti:" << l->getItemCount() << std::endl;
+    }
 
     virtual void attach(List* l){
         lists.push_back(l);
