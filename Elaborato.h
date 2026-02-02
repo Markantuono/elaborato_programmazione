@@ -34,7 +34,7 @@ private:
     int day, month, year;
     std::string brand;
     std::vector<std::string> ingredients;
-    std::vector<int> days = {30, 28, 30, 31, 30, 31, 30, 31, 30, 31, 30, 31};
+    std::vector<int> days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 public:
     Informazioni(int d, int m, int y, std::string& b, std::vector<std::string>& i, std::vector<int>& ds): day(d), month(m), year(y), brand(b), ingredients(i), days(ds){}
 
