@@ -162,6 +162,16 @@ public:
         return items.end();
     }
 
+    void setNewQuantity(std::string& name, int newQuantity){
+        auto it = findItem(name);
+
+        if (it != items.end()) {
+            if ((*it)->getQuantity() != newQuantity) {
+                (*it)->setQuantity(newQuantity);
+                notify();
+            }
+    }
+
     void removeItem(std::string& name){
         auto it = findItem(name);
 
