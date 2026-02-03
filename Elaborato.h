@@ -11,13 +11,15 @@
 #include <stdexcept>
 #include <algorithm>
 
+class List; //Forward declaration
+
 class Observer{
 public:
     virtual ~Observer() = default;
 
-    virtual void update() = 0;
-    virtual void attach() = 0;
-    virtual void detach() = 0;
+    virtual void update(List* l) = 0;
+    virtual void attach(List* l) = 0;
+    virtual void detach(List* l) = 0;
 };
 
 class Subject{
@@ -254,7 +256,7 @@ public:
 
     virtual void notify() override{
         for(auto it = std::begin(observers); it != observers.end(); it++){
-            (*it)->update();
+            (*it)->update(this);
         }
     }
 
@@ -268,17 +270,17 @@ private:
 public:
     User(List* l);
 
-    virtual void update(List* l){
+    virtual void update(List* l) override{
         std::cout << "Numero prodotti:" << l->getItemCount() << std::endl;
         std::cout << "Lista completa:" << l->showList() << std::endl;
     }
 
-    virtual void attach(List* l){
+    virtual void attach(List* l) override{
         lists.push_back(l);
         l->attach(this);
     }
 
-    virtual void detach();
+    virtual void detach(List* l) override;
 
     virtual ~User() = default;
 };
