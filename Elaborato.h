@@ -149,11 +149,11 @@ public:
 
 class List: public Subject{
 private:
-    std::string shoppingList;
+    std::string listName;
     std::vector<Item*> items;
     std::list<Observer*> observers;
 public:
-    List(std::string& sl,std::vector<Item*>& i, std::list<Observer*>& o): shoppingList(sl), items(i), observers(o){}
+    List(std::string& ln,std::vector<Item*>& i, std::list<Observer*>& o): listName(ln), items(i), observers(o){}
 
     void addItem(){
         for (auto const i : items) {
@@ -201,6 +201,10 @@ public:
             items.erase(it);
             notify();
         }
+    }
+
+    std::string getName(){
+        return listName;
     }
 
     int getItemCount() const {
