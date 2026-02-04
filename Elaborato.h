@@ -270,10 +270,10 @@ public:
 
 class User: public Observer{
 private:
-    std::string name;
+    std::string userName;
     std::map<std::string, std::shared_ptr<List>> lists;
 public:
-    User(std::string& n, std::map<std::string, std::shared_ptr<List>>& l): name(n), lists(l){}
+    User(std::string& un, std::map<std::string, std::shared_ptr<List>>& l): userName(un), lists(l){}
 
     virtual void update(List* list) override{
         std::cout << "La lista: " << list->getName() << " è stata modificatata" << std::endl;
@@ -294,6 +294,21 @@ public:
         }
         else{
             throw std::invalid_argument("Lista già esistente");
+        }
+    }
+
+    std::string getUserName() const{
+        return userName;
+    }
+
+    std::shared_ptr<List> getList(const std::string& listName) const{
+        auto it = lists.find(listName);
+
+        if(it != lists.end()){
+            return it->second;
+        }
+        else{
+            throw std::invalid_argument("Lista non esistente");
         }
     }
 
