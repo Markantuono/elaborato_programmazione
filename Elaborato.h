@@ -11,6 +11,7 @@
 #include <map>
 #include <stdexcept>
 #include <algorithm>
+#include <memory>
 
 class List; //Forward declaration
 
@@ -18,9 +19,9 @@ class Observer{
 public:
     virtual ~Observer() = default;
 
-    virtual void update(List* l) = 0;
-    virtual void attach(List* l) = 0;
-    virtual void detach(List* l) = 0;
+    virtual void update(List* list) = 0;
+    virtual void attach(std::shared_ptr<List> list) = 0;
+    virtual void detach(std::shared_ptr<List> list) = 0;
 };
 
 class Subject{
@@ -270,21 +271,33 @@ public:
 class User: public Observer{
 private:
     std::string name;
-    std::vector<List*> lists;
+    std::map<std::string, std::shared_ptr<List>> lists;
 public:
-    User(List* l);
+    User(std::string& n, std::map<std::string, std::shared_ptr<List>>& l): name(n), lists(l){}
 
-    virtual void update(List* l) override{
-        std::cout << "Numero prodotti:" << l->getItemCount() << std::endl;
-        std::cout << "Lista completa:" << l->showList() << std::endl;
+    virtual void update(List* list) override{
+        std::cout << "La lista: " << list->getName() << " è stata modificatata" << std::endl;
+        std::cout << "-STATO ATTUALE-" << std::endl;
+        std::cout << "Numero prodotti:" << list->getItemCount() << std::endl;
+        std::cout << "Lista completa:" << list->showList() << std::endl;
     }
 
-    virtual void attach(List* l) override{
-        lists.push_back(l);
-        l->attach(this);
+    virtual void attach(std::shared_ptr<List> list) override {
+        auto it = list->getName();
+
+        if(list == nullptr){
+            throw std::invalid_argument("Lista nulla");
+        }
+        else if (lists.find(it) == lists.end()){
+            lists[it] = list;
+            list->attach(this);
+        }
+        else{
+            throw std::invalid_argument("Lista già esistente");
+        }
     }
 
-    virtual void detach(List* l) override;
+    virtual void detach(std::shared_ptr<List> list) override;
 
     virtual ~User() = default;
 };
