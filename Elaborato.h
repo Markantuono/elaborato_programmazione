@@ -40,7 +40,7 @@ private:
     std::vector<std::string> ingredients;
     std::vector<int> days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 public:
-    Informazioni(int d, int m, int y, std::string& b, std::vector<std::string>& i, std::vector<int>& ds): day(d), month(m), year(y), brand(b), ingredients(i), days(ds){}
+    Informazioni(int d, int m, int y, const std::string& b): day(d), month(m), year(y), brand(b){}
 
     void setDate(int d, int m, int y){
         if(y >= 2026){
@@ -62,7 +62,7 @@ public:
         }
     }
 
-    std::string getDate(){
+    std::string getDate() const{
         return std::to_string(day) + "/" + std::to_string(month) + "/" + std::to_string(year);
     }
 
@@ -102,7 +102,7 @@ private:
     double price;
     bool purchased;
 public:
-    Item(std::string& n, Informazioni& i, Category& c, int q, double p, bool pc = false): name(n), info(i), category(c), quantity(q), price(p), purchased(pc){}
+    Item(const std::string& n, Informazioni& i, Category& c, int q, double p, bool pc = false): name(n), info(i), category(c), quantity(q), price(p), purchased(pc){}
 
     void setCategory(Category newCategory){
         category = newCategory;
@@ -157,7 +157,7 @@ private:
     std::map<std::string, Item> items;
     std::list<Observer*> observers;
 public:
-    List(std::string& ln, std::map<std::string, Item>& i, std::list<Observer*>& o): listName(ln), items(i), observers(o){}
+    List(const std::string& ln): listName(ln){}
 
     void addItem(const Item& item) {
         auto it = items.find(item.getName());
@@ -206,7 +206,7 @@ public:
         }
     }
 
-    std::string getName() const{
+    std::string getListName() const{
         return listName;
     }
 
@@ -273,17 +273,17 @@ private:
     std::string userName;
     std::map<std::string, std::shared_ptr<List>> lists;
 public:
-    User(std::string& un, std::map<std::string, std::shared_ptr<List>>& l): userName(un), lists(l){}
+    User(const std::string& un): userName(un){}
 
     virtual void update(List* list) override{
-        std::cout << "La lista: " << list->getName() << " è stata modificatata" << std::endl;
+        std::cout << "La lista: " << list->getListName() << " è stata modificatata" << std::endl;
         std::cout << "-STATO ATTUALE-" << std::endl;
         std::cout << "Numero prodotti:" << list->getItemCount() << std::endl;
         std::cout << "Lista completa:" << list->showList() << std::endl;
     }
 
     virtual void attach(std::shared_ptr<List> list) override {
-        auto it = list->getName();
+        auto it = list->getListName();
 
         if(list == nullptr){
             throw std::invalid_argument("Lista nulla");
@@ -295,6 +295,21 @@ public:
         else{
             throw std::invalid_argument("Lista già esistente");
         }
+    }
+
+    void createList(const std::string& listName){
+        if(lists.find(listName) != lists.end()){
+            throw std::invalid_argument("Lista già esistente");
+        }
+        else{
+            auto it = std::make_shared<List>(listName);
+        }
+    }
+
+    void shareList(User* user, const std::string& listName){
+        auto it = getList(listName);
+        user->attach(it);
+        std::cout << "Lista: " << it->getListName() << ", condivisa con l'Utente: " << user->getUserName() << std::endl;
     }
 
     std::string getUserName() const{
@@ -340,7 +355,7 @@ public:
         }
     }
 
-    std::string showList() const{
+    std::string showAllList() const{
         std::cout << "Utente: " << userName << " gestisce le liste:" << std::endl;
         for(const auto& l : lists){
             std::cout << "~" << l.first << std::endl;
