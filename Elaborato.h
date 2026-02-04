@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <map>
 #include <stdexcept>
 #include <algorithm>
 
@@ -124,27 +125,27 @@ public:
         purchased = value;
     }
 
-    std::string getName(){
+    std::string getName() const{
         return name;
     }
 
-    Category getCategory(){
+    Category getCategory() const{
         return category;
     }
 
-    int getQuantity(){
+    int getQuantity() const{
         return quantity;
     }
 
-    double getPrice(){
+    double getPrice() const{
         return price * quantity;
     }
 
-    bool isPurchased(){
+    bool isPurchased() const{
         return purchased;
     }
 
-    Informazioni getInfo(){
+    Informazioni getInfo() const{
         return info;
     }
 };
@@ -152,33 +153,33 @@ public:
 class List: public Subject{
 private:
     std::string listName;
-    std::vector<Item*> items;
+    std::map<std::string, Item> items;
     std::list<Observer*> observers;
 public:
-    List(std::string& ln,std::vector<Item*>& i, std::list<Observer*>& o): listName(ln), items(i), observers(o){}
+    List(std::string& ln, std::map<std::string, Item>& i, std::list<Observer*>& o): listName(ln), items(i), observers(o){}
 
-    void addItem(){
-        for (auto const i : items) {
-                items.push_back(i);
-                notify();
+    void addItem(const Item& item) {
+        auto it = items.find(item.getName());
+
+        if (it == items.end()) {
+            items.emplace(item.getName(), item);
+        } else {
+            int newQuantity = it->second.getQuantity() + 1;
+            it->second.setQuantity(newQuantity);
         }
+        notify();
     }
 
-    auto findItem(std::string& name){
-        for (auto it = items.begin(); it != items.end(); ++it){
-            if (*it && (*it)->getName() == name) {
-                return it;
-            }
-        }
-        return items.end();
+    auto findItem(const std::string& name){
+        return items.find(name);
     }
 
     void setNewQuantity(std::string& name, int newQuantity){
         auto it = findItem(name);
 
         if (it != items.end()){
-            if ((*it)->getQuantity() != newQuantity) {
-                (*it)->setQuantity(newQuantity);
+            if (it->second.getQuantity() != newQuantity) {
+                it->second.setQuantity(newQuantity);
                 notify();
             }
         }
@@ -188,8 +189,8 @@ public:
         auto it = findItem(name);
 
         if(it != items.end()){
-            if((*it)->isPurchased() != purchased){
-                (*it)->setStatus(purchased);
+            if(it->second.isPurchased() != purchased){
+                it->second.setStatus(purchased);
                 notify();
             }
         }
@@ -199,24 +200,27 @@ public:
         auto it = findItem(name);
 
         if(it != items.end()){
-            delete *it;
             items.erase(it);
             notify();
         }
     }
 
-    std::string getName(){
+    std::string getName() const{
         return listName;
     }
 
-    int getItemCount() const {
-        return items.size();
+    int getItemCount() const{
+        int count = 0;
+        for(const auto item : items){
+            count++;
+        }
+        return count;
     }
 
-    double getTotalPrice(){
+    double getTotalPrice() const{
         double totalPrice = 0;
-        for (auto it = items.begin(); it != items.end(); ++it){
-            totalPrice += (*it)->getPrice();
+        for(const auto& [name, item] : items){
+            totalPrice += item.getPrice();
         }
         return totalPrice;
     }
@@ -226,19 +230,19 @@ public:
         double totalNotPurchased = 0;
 
         std::cout << "-PRODOTTI ACQUISTATI-" << std::endl;
-        for(auto const i : items){
-            if(i->isPurchased()){
-                totalPurchased += i->getPrice();
-                std::cout << "-" << i->getName() << "x" << i->getQuantity() << std::endl;
+        for(const auto& [name, item] : items){
+            if(item.isPurchased()){
+                totalPurchased += item.getPrice();
+                std::cout << "-" << item.getName() << "x" << item.getQuantity() << std::endl;
             }
         }
         std::cout << "Totale speso:" << totalPurchased << "€" << std::endl;
 
         std::cout << "-PRODOTTI DA ACQUISTARE-" << std::endl;
-        for(const auto i : items){
-            if (!i->isPurchased()){
-                totalNotPurchased += i->getPrice();
-                std::cout << "-" << i->getName() << "x" << i->getQuantity() << std::endl;
+        for(const auto& [name, item] : items){
+            if (!item.isPurchased()){
+                totalNotPurchased += item.getPrice();
+                std::cout << "-" << item.getName() << "x" << item.getQuantity() << std::endl;
             }
         }
         std::cout << "Totale da spendere:" << totalNotPurchased << "€" << std::endl;
