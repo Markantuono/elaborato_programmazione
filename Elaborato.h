@@ -175,7 +175,7 @@ public:
         return items.find(name);
     }
 
-    void setNewQuantity(std::string& name, int newQuantity){
+    void setNewQuantity(const std::string& name, int newQuantity){
         auto it = findItem(name);
 
         if (it != items.end()){
@@ -186,7 +186,7 @@ public:
         }
     }
 
-    void setPurchasedStatus(std::string& name, bool purchased){
+    void setPurchasedStatus(const std::string& name, bool purchased){
         auto it = findItem(name);
 
         if(it != items.end()){
@@ -197,7 +197,7 @@ public:
         }
     }
 
-    void removeItem(std::string& name){
+    void removeItem(const std::string& name){
         auto it = findItem(name);
 
         if(it != items.end()){
@@ -309,6 +309,42 @@ public:
         }
         else{
             throw std::invalid_argument("Lista non esistente");
+        }
+    }
+
+    void addItemToList(const std::string& listName, const Item& item){
+        if(lists.find(listName) != lists.end()){
+            lists[listName]->addItem(item);
+        }
+        else{
+            throw std::invalid_argument("Lista non trovata");
+        }
+    }
+
+    void updateQuantity(const std::string& listName, const std::string& name,  int newQuantity){
+        auto it = getList(listName);
+        it->setNewQuantity(name, newQuantity);
+    }
+
+    void updateStatus(const std::string& listName, const std::string& name, bool purchased){
+        auto it = getList(listName);
+        it->setPurchasedStatus(name, purchased);
+    }
+
+    void removeItemFromList(const std::string& listName, const std::string& itemName){
+        if(lists.find(listName) != lists.end()){
+            lists[listName]->removeItem(itemName);
+        }
+        else{
+            throw std::invalid_argument("Lista non trovata");
+        }
+    }
+
+    std::string showList() const{
+        std::cout << "Utente: " << userName << " gestisce le liste:" << std::endl;
+        for(const auto& l : lists){
+            std::cout << "~" << l.first << std::endl;
+            l.second->showList();
         }
     }
 
