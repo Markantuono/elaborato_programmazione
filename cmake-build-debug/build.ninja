@@ -55,6 +55,30 @@ build CMakeFiles/elaborato_programmazione.dir/main.cpp.obj: CXX_COMPILER__elabor
   OBJECT_DIR = CMakeFiles\elaborato_programmazione.dir
   OBJECT_FILE_DIR = CMakeFiles\elaborato_programmazione.dir
 
+build CMakeFiles/elaborato_programmazione.dir/Informations.cpp.obj: CXX_COMPILER__elaborato_programmazione_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Informations.cpp || cmake_object_order_depends_target_elaborato_programmazione
+  DEP_FILE = CMakeFiles\elaborato_programmazione.dir\Informations.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\elaborato_programmazione.dir
+  OBJECT_FILE_DIR = CMakeFiles\elaborato_programmazione.dir
+
+build CMakeFiles/elaborato_programmazione.dir/Item.cpp.obj: CXX_COMPILER__elaborato_programmazione_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Item.cpp || cmake_object_order_depends_target_elaborato_programmazione
+  DEP_FILE = CMakeFiles\elaborato_programmazione.dir\Item.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\elaborato_programmazione.dir
+  OBJECT_FILE_DIR = CMakeFiles\elaborato_programmazione.dir
+
+build CMakeFiles/elaborato_programmazione.dir/List.cpp.obj: CXX_COMPILER__elaborato_programmazione_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/List.cpp || cmake_object_order_depends_target_elaborato_programmazione
+  DEP_FILE = CMakeFiles\elaborato_programmazione.dir\List.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\elaborato_programmazione.dir
+  OBJECT_FILE_DIR = CMakeFiles\elaborato_programmazione.dir
+
+build CMakeFiles/elaborato_programmazione.dir/User.cpp.obj: CXX_COMPILER__elaborato_programmazione_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/User.cpp || cmake_object_order_depends_target_elaborato_programmazione
+  DEP_FILE = CMakeFiles\elaborato_programmazione.dir\User.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\elaborato_programmazione.dir
+  OBJECT_FILE_DIR = CMakeFiles\elaborato_programmazione.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target elaborato_programmazione
@@ -63,7 +87,7 @@ build CMakeFiles/elaborato_programmazione.dir/main.cpp.obj: CXX_COMPILER__elabor
 #############################################
 # Link the executable elaborato_programmazione.exe
 
-build elaborato_programmazione.exe: CXX_EXECUTABLE_LINKER__elaborato_programmazione_Debug CMakeFiles/elaborato_programmazione.dir/main.cpp.obj
+build elaborato_programmazione.exe: CXX_EXECUTABLE_LINKER__elaborato_programmazione_Debug CMakeFiles/elaborato_programmazione.dir/main.cpp.obj CMakeFiles/elaborato_programmazione.dir/Informations.cpp.obj CMakeFiles/elaborato_programmazione.dir/Item.cpp.obj CMakeFiles/elaborato_programmazione.dir/List.cpp.obj CMakeFiles/elaborato_programmazione.dir/User.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\elaborato_programmazione.dir
