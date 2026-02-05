@@ -31,7 +31,7 @@ private:
     double price;
     bool purchased;
 public:
-    Item(const std::string& n, Informations& i, Category& c, int q, double p, bool pc = false): name(n), info(i), category(c), quantity(q), price(p), purchased(pc){}
+    Item(const std::string& n, int d, int m, int y, const std::string& b, Category c, int q, double p, bool pc = false): name(n), info(d, m, y, b), category(c), quantity(q), price(p), purchased(pc){}
 
     void setCategory(Category newCategory);
 

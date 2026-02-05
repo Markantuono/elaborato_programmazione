@@ -88,6 +88,14 @@ void User::removeItemFromList(const std::string& listName, const std::string& it
     }
 };
 
+std::string User::showSingleList(const std::string& listName) const{
+    auto it = lists.find(listName);
+
+    if(it != lists.end()) {
+        it->second->showList();
+    }
+}
+
 std::string User::showAllList() const{
     std::cout << "Utente: " << userName << " gestisce le liste:" << std::endl;
     for(const auto& l : lists){
