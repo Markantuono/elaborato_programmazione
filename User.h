@@ -39,9 +39,9 @@ public:
 
     void removeItemFromList(const std::string& listName, const std::string& itemName);
 
-    std::string showSingleList(const std::string& listName) const;
+    void showSingleList(const std::string& listName) const;
 
-    std::string showAllList() const;
+    void showAllList() const;
 
     virtual void detach(std::shared_ptr<List> list) override;
 

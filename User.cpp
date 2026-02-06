@@ -36,6 +36,8 @@ void User::createList(const std::string& listName){
     }
     else{
         auto it = std::make_shared<List>(listName);
+        lists[listName] = it;
+        it->attach(this);
     }
 };
 
@@ -88,7 +90,7 @@ void User::removeItemFromList(const std::string& listName, const std::string& it
     }
 };
 
-std::string User::showSingleList(const std::string& listName) const{
+void User::showSingleList(const std::string& listName) const{
     auto it = lists.find(listName);
 
     if(it != lists.end()) {
@@ -96,10 +98,13 @@ std::string User::showSingleList(const std::string& listName) const{
     }
 }
 
-std::string User::showAllList() const{
+void User::showAllList() const{
     std::cout << "Utente: " << userName << " gestisce le liste:" << std::endl;
     for(const auto& l : lists){
         std::cout << "~" << l.first << std::endl;
         l.second->showList();
     }
 };
+
+void User::detach(std::shared_ptr<List> list) {};
+
