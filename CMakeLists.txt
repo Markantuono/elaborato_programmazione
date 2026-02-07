@@ -3,7 +3,9 @@ project(elaborato_programmazione)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(elaborato_programmazione main.cpp
+add_subdirectory(test)
+
+set(SOURCE_FILES
         Observer.h
         Subject.h
         Informations.h
@@ -15,3 +17,9 @@ add_executable(elaborato_programmazione main.cpp
         List.cpp
         User.cpp
 )
+
+add_executable(elaborato_programmazione main.cpp)
+
+add_library(core ${SOURCE_FILES})
+
+target_link_libraries(elaborato_programmazione core)

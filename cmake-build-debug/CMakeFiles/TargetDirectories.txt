@@ -1,3 +1,11 @@
 C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug/CMakeFiles/elaborato_programmazione.dir
+C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug/CMakeFiles/core.dir
 C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug/Test/CMakeFiles/runTests.dir
+C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug/Test/CMakeFiles/edit_cache.dir
+C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug/Test/CMakeFiles/rebuild_cache.dir
+C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug/Test/lib/googletest/CMakeFiles/gtest.dir
+C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug/Test/lib/googletest/CMakeFiles/gtest_main.dir
+C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug/Test/lib/googletest/CMakeFiles/edit_cache.dir
+C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug/Test/lib/googletest/CMakeFiles/rebuild_cache.dir

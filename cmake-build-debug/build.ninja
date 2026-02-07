@@ -47,34 +47,10 @@ cmake_ninja_workdir = C$:/Users/HP/Documents/GitHub/elaborato_programmazione/cma
 #############################################
 # Order-only phony target for elaborato_programmazione
 
-build cmake_object_order_depends_target_elaborato_programmazione: phony || CMakeFiles/elaborato_programmazione.dir
+build cmake_object_order_depends_target_elaborato_programmazione: phony || cmake_object_order_depends_target_core
 
 build CMakeFiles/elaborato_programmazione.dir/main.cpp.obj: CXX_COMPILER__elaborato_programmazione_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/main.cpp || cmake_object_order_depends_target_elaborato_programmazione
   DEP_FILE = CMakeFiles\elaborato_programmazione.dir\main.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\elaborato_programmazione.dir
-  OBJECT_FILE_DIR = CMakeFiles\elaborato_programmazione.dir
-
-build CMakeFiles/elaborato_programmazione.dir/Informations.cpp.obj: CXX_COMPILER__elaborato_programmazione_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Informations.cpp || cmake_object_order_depends_target_elaborato_programmazione
-  DEP_FILE = CMakeFiles\elaborato_programmazione.dir\Informations.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\elaborato_programmazione.dir
-  OBJECT_FILE_DIR = CMakeFiles\elaborato_programmazione.dir
-
-build CMakeFiles/elaborato_programmazione.dir/Item.cpp.obj: CXX_COMPILER__elaborato_programmazione_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Item.cpp || cmake_object_order_depends_target_elaborato_programmazione
-  DEP_FILE = CMakeFiles\elaborato_programmazione.dir\Item.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\elaborato_programmazione.dir
-  OBJECT_FILE_DIR = CMakeFiles\elaborato_programmazione.dir
-
-build CMakeFiles/elaborato_programmazione.dir/List.cpp.obj: CXX_COMPILER__elaborato_programmazione_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/List.cpp || cmake_object_order_depends_target_elaborato_programmazione
-  DEP_FILE = CMakeFiles\elaborato_programmazione.dir\List.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\elaborato_programmazione.dir
-  OBJECT_FILE_DIR = CMakeFiles\elaborato_programmazione.dir
-
-build CMakeFiles/elaborato_programmazione.dir/User.cpp.obj: CXX_COMPILER__elaborato_programmazione_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/User.cpp || cmake_object_order_depends_target_elaborato_programmazione
-  DEP_FILE = CMakeFiles\elaborato_programmazione.dir\User.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\elaborato_programmazione.dir
   OBJECT_FILE_DIR = CMakeFiles\elaborato_programmazione.dir
@@ -87,15 +63,64 @@ build CMakeFiles/elaborato_programmazione.dir/User.cpp.obj: CXX_COMPILER__elabor
 #############################################
 # Link the executable elaborato_programmazione.exe
 
-build elaborato_programmazione.exe: CXX_EXECUTABLE_LINKER__elaborato_programmazione_Debug CMakeFiles/elaborato_programmazione.dir/main.cpp.obj CMakeFiles/elaborato_programmazione.dir/Informations.cpp.obj CMakeFiles/elaborato_programmazione.dir/Item.cpp.obj CMakeFiles/elaborato_programmazione.dir/List.cpp.obj CMakeFiles/elaborato_programmazione.dir/User.cpp.obj
+build elaborato_programmazione.exe: CXX_EXECUTABLE_LINKER__elaborato_programmazione_Debug CMakeFiles/elaborato_programmazione.dir/main.cpp.obj | libcore.a || libcore.a
   FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = libcore.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\elaborato_programmazione.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_FILE = elaborato_programmazione.exe
   TARGET_IMPLIB = libelaborato_programmazione.dll.a
   TARGET_PDB = elaborato_programmazione.exe.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target core
+
+
+#############################################
+# Order-only phony target for core
+
+build cmake_object_order_depends_target_core: phony || CMakeFiles/core.dir
+
+build CMakeFiles/core.dir/Informations.cpp.obj: CXX_COMPILER__core_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Informations.cpp || cmake_object_order_depends_target_core
+  DEP_FILE = CMakeFiles\core.dir\Informations.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\core.dir
+  OBJECT_FILE_DIR = CMakeFiles\core.dir
+
+build CMakeFiles/core.dir/Item.cpp.obj: CXX_COMPILER__core_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Item.cpp || cmake_object_order_depends_target_core
+  DEP_FILE = CMakeFiles\core.dir\Item.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\core.dir
+  OBJECT_FILE_DIR = CMakeFiles\core.dir
+
+build CMakeFiles/core.dir/List.cpp.obj: CXX_COMPILER__core_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/List.cpp || cmake_object_order_depends_target_core
+  DEP_FILE = CMakeFiles\core.dir\List.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\core.dir
+  OBJECT_FILE_DIR = CMakeFiles\core.dir
+
+build CMakeFiles/core.dir/User.cpp.obj: CXX_COMPILER__core_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/User.cpp || cmake_object_order_depends_target_core
+  DEP_FILE = CMakeFiles\core.dir\User.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\core.dir
+  OBJECT_FILE_DIR = CMakeFiles\core.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target core
+
+
+#############################################
+# Link the static library libcore.a
+
+build libcore.a: CXX_STATIC_LIBRARY_LINKER__core_Debug CMakeFiles/core.dir/Informations.cpp.obj CMakeFiles/core.dir/Item.cpp.obj CMakeFiles/core.dir/List.cpp.obj CMakeFiles/core.dir/User.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = CMakeFiles\core.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = libcore.a
+  TARGET_PDB = core.a.dbg
 
 
 #############################################
@@ -121,9 +146,184 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/HP/Documents/GitHub/elaborato_programmazione/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target runTests
+
+
+#############################################
+# Order-only phony target for runTests
+
+build cmake_object_order_depends_target_runTests: phony || cmake_object_order_depends_target_core cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+
+build Test/CMakeFiles/runTests.dir/TestItem.cpp.obj: CXX_COMPILER__runTests_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/TestItem.cpp || cmake_object_order_depends_target_runTests
+  DEP_FILE = Test\CMakeFiles\runTests.dir\TestItem.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest -isystem C:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest/include
+  OBJECT_DIR = Test\CMakeFiles\runTests.dir
+  OBJECT_FILE_DIR = Test\CMakeFiles\runTests.dir
+
+build Test/CMakeFiles/runTests.dir/runAllTest.cpp.obj: CXX_COMPILER__runTests_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/runAllTest.cpp || cmake_object_order_depends_target_runTests
+  DEP_FILE = Test\CMakeFiles\runTests.dir\runAllTest.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest -isystem C:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest/include
+  OBJECT_DIR = Test\CMakeFiles\runTests.dir
+  OBJECT_FILE_DIR = Test\CMakeFiles\runTests.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target runTests
+
+
+#############################################
+# Link the executable Test\runTests.exe
+
+build Test/runTests.exe: CXX_EXECUTABLE_LINKER__runTests_Debug Test/CMakeFiles/runTests.dir/TestItem.cpp.obj Test/CMakeFiles/runTests.dir/runAllTest.cpp.obj | Test/lib/googletest/libgtestd.a Test/lib/googletest/libgtest_maind.a libcore.a Test/lib/googletest/libgtestd.a || Test/lib/googletest/libgtest_maind.a Test/lib/googletest/libgtestd.a libcore.a
+  FLAGS = -g
+  LINK_LIBRARIES = Test/lib/googletest/libgtestd.a  Test/lib/googletest/libgtest_maind.a  libcore.a  Test/lib/googletest/libgtestd.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = Test\CMakeFiles\runTests.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Test\runTests.exe
+  TARGET_IMPLIB = Test\librunTests.dll.a
+  TARGET_PDB = runTests.exe.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Test/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\HP\Documents\GitHub\elaborato_programmazione\cmake-build-debug\Test && "C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Test/edit_cache: phony Test/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Test/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\HP\Documents\GitHub\elaborato_programmazione\cmake-build-debug\Test && "C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\HP\Documents\GitHub\elaborato_programmazione -BC:\Users\HP\Documents\GitHub\elaborato_programmazione\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Test/rebuild_cache: phony Test/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Order-only phony target for gtest
+
+build cmake_object_order_depends_target_gtest: phony || Test/lib/googletest/CMakeFiles/gtest.dir
+
+build Test/lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj: CXX_COMPILER__gtest_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
+  DEP_FILE = Test\lib\googletest\CMakeFiles\gtest.dir\src\gtest-all.cc.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always  -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
+  INCLUDES = -IC:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest/include -IC:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest
+  OBJECT_DIR = Test\lib\googletest\CMakeFiles\gtest.dir
+  OBJECT_FILE_DIR = Test\lib\googletest\CMakeFiles\gtest.dir\src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Link the static library Test\lib\googletest\libgtestd.a
+
+build Test/lib/googletest/libgtestd.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug Test/lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Test\lib\googletest\CMakeFiles\gtest.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Test\lib\googletest\libgtestd.a
+  TARGET_PDB = gtestd.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Order-only phony target for gtest_main
+
+build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
+
+build Test/lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj: CXX_COMPILER__gtest_main_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
+  DEP_FILE = Test\lib\googletest\CMakeFiles\gtest_main.dir\src\gtest_main.cc.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always  -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
+  INCLUDES = -IC:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest -isystem C:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest/include
+  OBJECT_DIR = Test\lib\googletest\CMakeFiles\gtest_main.dir
+  OBJECT_FILE_DIR = Test\lib\googletest\CMakeFiles\gtest_main.dir\src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Link the static library Test\lib\googletest\libgtest_maind.a
+
+build Test/lib/googletest/libgtest_maind.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug Test/lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj || Test/lib/googletest/libgtestd.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Test\lib\googletest\CMakeFiles\gtest_main.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Test\lib\googletest\libgtest_maind.a
+  TARGET_PDB = gtest_maind.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Test/lib/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\HP\Documents\GitHub\elaborato_programmazione\cmake-build-debug\Test\lib\googletest && "C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Test/lib/googletest/edit_cache: phony Test/lib/googletest/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Test/lib/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\HP\Documents\GitHub\elaborato_programmazione\cmake-build-debug\Test\lib\googletest && "C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\HP\Documents\GitHub\elaborato_programmazione -BC:\Users\HP\Documents\GitHub\elaborato_programmazione\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Test/lib/googletest/rebuild_cache: phony Test/lib/googletest/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
 
+build core: phony libcore.a
+
 build elaborato_programmazione: phony elaborato_programmazione.exe
+
+build gtest: phony Test/lib/googletest/libgtestd.a
+
+build gtest_main: phony Test/lib/googletest/libgtest_maind.a
+
+build libgtest_maind.a: phony Test/lib/googletest/libgtest_maind.a
+
+build libgtestd.a: phony Test/lib/googletest/libgtestd.a
+
+build runTests: phony Test/runTests.exe
+
+build runTests.exe: phony Test/runTests.exe
 
 # =============================================================================
 # Folder targets.
@@ -133,7 +333,21 @@ build elaborato_programmazione: phony elaborato_programmazione.exe
 #############################################
 # Folder: C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug
 
-build all: phony elaborato_programmazione.exe
+build all: phony elaborato_programmazione.exe libcore.a Test/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug/Test
+
+build Test/all: phony Test/runTests.exe Test/lib/googletest/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/HP/Documents/GitHub/elaborato_programmazione/cmake-build-debug/Test/lib/googletest
+
+build Test/lib/googletest/all: phony Test/lib/googletest/libgtestd.a Test/lib/googletest/libgtest_maind.a
 
 # =============================================================================
 # Built-in targets
@@ -142,14 +356,14 @@ build all: phony elaborato_programmazione.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Users/HP/Documents/GitHub/elaborato_programmazione/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeRCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/FindPythonInterp.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Users/HP/Documents/GitHub/elaborato_programmazione/CMakeLists.txt C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/CMakeLists.txt C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest/CMakeLists.txt C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest/cmake/internal_utils.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeRCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Users/HP/Documents/GitHub/elaborato_programmazione/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeRCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
+build C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/FindPythonInterp.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Users/HP/Documents/GitHub/elaborato_programmazione/CMakeLists.txt C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/CMakeLists.txt C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest/CMakeLists.txt C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest/cmake/internal_utils.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeRCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
 
 
 #############################################
