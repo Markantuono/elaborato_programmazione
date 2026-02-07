@@ -51,7 +51,7 @@ public:
 
     bool isPurchased() const;
 
-    Informations getInfo() const;
+    std::string getInfo() const;
 };
 
 

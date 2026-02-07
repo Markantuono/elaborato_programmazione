@@ -1,0 +1,15 @@
+# ninja log v5
+24	877	7922050707708022	CMakeFiles/core.dir/Informations.cpp.obj	919aacac65e7d38
+14	901	7922050707937963	CMakeFiles/core.dir/Item.cpp.obj	6a7eef8d36ec0224
+1	1107	7922050709994315	CMakeFiles/elaborato_programmazione.dir/main.cpp.obj	a876f92ea0301ffb
+8	1182	7922050710743529	CMakeFiles/core.dir/User.cpp.obj	5684c574ce6903d1
+19	1241	7922050711341886	CMakeFiles/core.dir/List.cpp.obj	43607ec15ff07e2
+1241	1549	7922050714418228	libcore.a	18df46a2b62d9209
+1549	1888	7922050717730611	elaborato_programmazione.exe	c076c4138b720f5
+14	701	7922084683291301	CMakeFiles/core.dir/Informations.cpp.obj	919aacac65e7d38
+20	703	7922084683281300	CMakeFiles/core.dir/Item.cpp.obj	6a7eef8d36ec0224
+3	991	7922084686190573	CMakeFiles/elaborato_programmazione.dir/main.cpp.obj	a876f92ea0301ffb
+9	1088	7922084687151843	CMakeFiles/core.dir/List.cpp.obj	43607ec15ff07e2
+26	1090	7922084687171842	CMakeFiles/core.dir/User.cpp.obj	5684c574ce6903d1
+1090	1261	7922084688900654	libcore.a	18df46a2b62d9209
+1262	1507	7922084691289852	elaborato_programmazione.exe	c076c4138b720f5

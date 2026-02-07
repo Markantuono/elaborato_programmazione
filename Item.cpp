@@ -48,6 +48,6 @@ bool Item::isPurchased() const{
     return purchased;
 };
 
-Informations Item::getInfo() const{
-    return info;
+std::string Item::getInfo() const{
+    return info.getDate() + " , " + info.getBrand() + " : " + info.getIngredients();
 };

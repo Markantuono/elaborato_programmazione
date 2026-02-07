@@ -34,9 +34,9 @@ std::string Informations::getBrand() const{
 };
 
 std::string Informations::getIngredients() const{
-    std::string result;
+    std::string listaIngredienti;
     for(auto const i : ingredients){
-        result += i + ", ";
+        listaIngredienti += i + ", ";
     }
-    return result;
+    return listaIngredienti;
 };
