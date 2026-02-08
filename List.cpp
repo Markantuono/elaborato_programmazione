@@ -34,6 +34,7 @@ void List::setNewQuantity(const std::string& name, int newQuantity){
             notify();
         }
     }
+    else throw std::invalid_argument("Questo Item non esiste all'interno della lista");
 };
 
 void List::setPurchasedStatus(const std::string& name, bool purchased){
@@ -45,6 +46,7 @@ void List::setPurchasedStatus(const std::string& name, bool purchased){
             notify();
         }
     }
+    else throw std::invalid_argument("Questo Item non esiste all'interno della lista");
 };
 
 void List::removeItem(const std::string& name){
@@ -54,11 +56,23 @@ void List::removeItem(const std::string& name){
         items.erase(it);
         notify();
     }
+    else throw std::invalid_argument("Questo Item non esiste all'interno della lista");
 };
 
 std::string List::getListName() const{
     return listName;
 };
+
+bool List::getItemStatus(const std::string& name){
+    auto it = findItem(name);
+
+    if(it != items.end()){
+        return it->second.isPurchased();
+    }
+    else{
+        throw std::invalid_argument("Questo item non esiste all'interno della lista");
+    }
+}
 
 int List::getItemCount() const{
     int count = 0;

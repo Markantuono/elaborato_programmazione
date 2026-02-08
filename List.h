@@ -33,6 +33,8 @@ public:
 
     std::string getListName() const;
 
+    bool getItemStatus(const std::string& name);
+
     int getItemCount() const;
 
     double getTotalPrice() const;
