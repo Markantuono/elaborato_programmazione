@@ -15,8 +15,7 @@ void List::addItem(const Item& item) {
     if (it == items.end()) {
         items.emplace(item.getName(), item);
     } else {
-        int newQuantity = it->second.getQuantity() + 1;
-        it->second.setQuantity(newQuantity);
+        throw std::invalid_argument("Item già presente");
     }
     notify();
 };
@@ -93,12 +92,14 @@ double List::getTotalPrice() const{
 std::string List::showList() const{
     double totalPurchased = 0;
     double totalNotPurchased = 0;
+    std::string products;
 
     std::cout << "-PRODOTTI ACQUISTATI-" << std::endl;
     for(const auto& [name, item] : items){
         if(item.isPurchased()){
             totalPurchased += item.getPrice();
-            std::cout << "-" << item.getName() << "x" << item.getQuantity() << std::endl;
+            std::cout << item.getName()<< " x " << item.getQuantity() << std::endl;
+            products+= item.getName() + " x " + std::to_string(item.getQuantity()) + "\n";
         }
     }
     std::cout << "Totale speso:" << totalPurchased << "€" << std::endl;
@@ -107,12 +108,13 @@ std::string List::showList() const{
     for(const auto& [name, item] : items){
         if (!item.isPurchased()){
             totalNotPurchased += item.getPrice();
-            std::cout << "-" << item.getName() << "x" << item.getQuantity() << std::endl;
+            std::cout << item.getName()<< " x " << item.getQuantity() << std::endl;
+            products+= item.getName() + " x " + std::to_string(item.getQuantity()) + "\n";
         }
     }
     std::cout << "Totale da spendere:" << totalNotPurchased << "€" << std::endl;
-
     std::cout << "Totale complessivo:" << totalPurchased + totalNotPurchased << "€" << std::endl;
+    return products;
 };
 
 void List::attach(Observer* o){

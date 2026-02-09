@@ -1,8 +1,18 @@
 # ninja log v5
-14	701	7922084683291301	CMakeFiles/core.dir/Informations.cpp.obj	919aacac65e7d38
+3	425	7923407587770080	CMakeFiles/core.dir/Informations.cpp.obj	919aacac65e7d38
 1262	1507	7922084691289852	elaborato_programmazione.exe	c076c4138b720f5
-20	703	7922084683281300	CMakeFiles/core.dir/Item.cpp.obj	6a7eef8d36ec0224
-26	1090	7922084687171842	CMakeFiles/core.dir/User.cpp.obj	5684c574ce6903d1
-9	1088	7922084687151843	CMakeFiles/core.dir/List.cpp.obj	43607ec15ff07e2
+14	1892	7923377902642591	CMakeFiles/core.dir/User.cpp.obj	5684c574ce6903d1
+9	397	7923407587479171	CMakeFiles/core.dir/Item.cpp.obj	6a7eef8d36ec0224
+4	916	7923400313831797	CMakeFiles/core.dir/List.cpp.obj	43607ec15ff07e2
 3	991	7922084686190573	CMakeFiles/elaborato_programmazione.dir/main.cpp.obj	a876f92ea0301ffb
-1090	1261	7922084688900654	libcore.a	18df46a2b62d9209
+426	539	7923407588908118	libcore.a	18df46a2b62d9209
+25	2312	7923377906880249	Test/CMakeFiles/runTests.dir/runAllTest.cpp.obj	f73e68c33261023b
+4	865	7923419914830247	Test/CMakeFiles/runTests.dir/TestInfo.cpp.obj	cc7f0a2a800f8dbd
+52	2333	7923377907070664	Test/lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	afdf75b64f985ff3
+4	1059	7923422361454654	Test/CMakeFiles/runTests.dir/TestItem.cpp.obj	70fb6af4334ba586
+11	1612	7923399460930550	Test/CMakeFiles/runTests.dir/TestList.cpp.obj	db0fa868c0d46152
+13276	13367	7923378017448891	Test/lib/googletest/libgtest_maind.a	eed9af15aafd856b
+1060	2736	7923422378168775	Test/runTests.exe	acb58283b2aa7e7e
+4	1124	7923417194437766	Test/CMakeFiles/runTests.dir/TestUser.cpp.obj	10053fb0fae6d057
+45	11695	7923378000516305	Test/lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	a51d6d2f6a5c6c88
+11698	13276	7923378016519830	Test/lib/googletest/libgtestd.a	f4571527acf59c0d

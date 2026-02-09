@@ -173,6 +173,13 @@ build Test/CMakeFiles/runTests.dir/TestList.cpp.obj: CXX_COMPILER__runTests_unsc
   OBJECT_DIR = Test\CMakeFiles\runTests.dir
   OBJECT_FILE_DIR = Test\CMakeFiles\runTests.dir
 
+build Test/CMakeFiles/runTests.dir/TestUser.cpp.obj: CXX_COMPILER__runTests_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/TestUser.cpp || cmake_object_order_depends_target_runTests
+  DEP_FILE = Test\CMakeFiles\runTests.dir\TestUser.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest -isystem C:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/lib/googletest/include
+  OBJECT_DIR = Test\CMakeFiles\runTests.dir
+  OBJECT_FILE_DIR = Test\CMakeFiles\runTests.dir
+
 build Test/CMakeFiles/runTests.dir/runAllTest.cpp.obj: CXX_COMPILER__runTests_unscanned_Debug C$:/Users/HP/Documents/GitHub/elaborato_programmazione/Test/runAllTest.cpp || cmake_object_order_depends_target_runTests
   DEP_FILE = Test\CMakeFiles\runTests.dir\runAllTest.cpp.obj.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
@@ -188,7 +195,7 @@ build Test/CMakeFiles/runTests.dir/runAllTest.cpp.obj: CXX_COMPILER__runTests_un
 #############################################
 # Link the executable Test\runTests.exe
 
-build Test/runTests.exe: CXX_EXECUTABLE_LINKER__runTests_Debug Test/CMakeFiles/runTests.dir/TestItem.cpp.obj Test/CMakeFiles/runTests.dir/TestList.cpp.obj Test/CMakeFiles/runTests.dir/runAllTest.cpp.obj | Test/lib/googletest/libgtestd.a Test/lib/googletest/libgtest_maind.a libcore.a Test/lib/googletest/libgtestd.a || Test/lib/googletest/libgtest_maind.a Test/lib/googletest/libgtestd.a libcore.a
+build Test/runTests.exe: CXX_EXECUTABLE_LINKER__runTests_Debug Test/CMakeFiles/runTests.dir/TestItem.cpp.obj Test/CMakeFiles/runTests.dir/TestList.cpp.obj Test/CMakeFiles/runTests.dir/TestUser.cpp.obj Test/CMakeFiles/runTests.dir/runAllTest.cpp.obj | Test/lib/googletest/libgtestd.a Test/lib/googletest/libgtest_maind.a libcore.a Test/lib/googletest/libgtestd.a || Test/lib/googletest/libgtest_maind.a Test/lib/googletest/libgtestd.a libcore.a
   FLAGS = -g
   LINK_LIBRARIES = Test/lib/googletest/libgtestd.a  Test/lib/googletest/libgtest_maind.a  libcore.a  Test/lib/googletest/libgtestd.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = Test\CMakeFiles\runTests.dir

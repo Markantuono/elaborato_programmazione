@@ -49,5 +49,5 @@ bool Item::isPurchased() const{
 };
 
 std::string Item::getInfo() const{
-    return info.getDate() + " , " + info.getBrand() + " : " + info.getIngredients();
+    return info.getDate() + " , " + info.getBrand();
 };

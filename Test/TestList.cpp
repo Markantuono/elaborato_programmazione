@@ -6,49 +6,58 @@
 #include "../List.h"
 
 TEST(ListTest, AddItem){
-    List list("Spesa");
+    List listName("Spesa");
     Item vino("Vino", 5, 2, 2026, "Chianti", Category::Alcolici, 1, 21.80, false);
-    list.addItem(vino);
-    EXPECT_EQ(list.getItemCount(), 1);
-    list.addItem(vino);
-    EXPECT_EQ(list.getItemCount(), 2);
+    listName.addItem(vino);
+    EXPECT_EQ(listName.getItemCount(), 1);
+    EXPECT_THROW(listName.addItem(vino), std::invalid_argument);
 }
 
 TEST(ListTest, RemoveItem){
-    List list("Spesa");
+    List listName("Spesa");
     Item vino("Vino", 5, 2, 2026, "Chianti", Category::Alcolici, 1, 21.80, false);
-    list.addItem(vino);
-    EXPECT_EQ(list.getItemCount(), 1);
-    list.removeItem("Vino");
-    EXPECT_EQ(list.getItemCount(), 0);
-    EXPECT_THROW(list.removeItem("Torta"), std::invalid_argument);
+    listName.addItem(vino);
+    EXPECT_EQ(listName.getItemCount(), 1);
+    listName.removeItem("Vino");
+    EXPECT_EQ(listName.getItemCount(), 0);
+    EXPECT_THROW(listName.removeItem("Torta"), std::invalid_argument);
 }
 
 TEST(ListTest, SetInvalidQuantity){
-    List list("Spesa");
+    List listName("Spesa");
     Item vino("Vino", 5, 2, 2026, "Chianti", Category::Alcolici, 1, 21.80, false);
-    list.addItem(vino);
-    EXPECT_THROW(list.setNewQuantity("Vino" , -3), std::invalid_argument);
+    listName.addItem(vino);
+    EXPECT_THROW(listName.setNewQuantity("Vino" , -3), std::invalid_argument);
 }
 
 TEST(ListTest, SetAndGetPurchasedStatus){
-    List list("Spesa");
+    List listName("Spesa");
     Item vino("Vino", 5, 2, 2026, "Chianti", Category::Alcolici, 1, 21.80, false);
-    list.addItem(vino);
-    list.setPurchasedStatus("Vino" , true);
-    EXPECT_EQ(list.getItemStatus("Vino"), true);
-    EXPECT_THROW(list.setPurchasedStatus("Torta" , true), std::invalid_argument);
-    EXPECT_THROW(list.getItemStatus("Torta"), std::invalid_argument);
+    listName.addItem(vino);
+    listName.setPurchasedStatus("Vino" , true);
+    EXPECT_EQ(listName.getItemStatus("Vino"), true);
+    EXPECT_THROW(listName.setPurchasedStatus("Torta" , true), std::invalid_argument);
+    EXPECT_THROW(listName.getItemStatus("Torta"), std::invalid_argument);
 }
 
 TEST(ListTest, GetListName){
-    List list("Spesa");
-    EXPECT_EQ(list.getListName(), "Spesa");
+    List listName("Spesa");
+    EXPECT_EQ(listName.getListName(), "Spesa");
 }
 
 TEST(ListTest, GetTotalPrice){
-    List list("Spesa");
+    List listName("Spesa");
     Item vino("Vino", 5, 2, 2026, "Chianti", Category::Alcolici, 2, 21.80, false);
-    list.addItem(vino);
-    EXPECT_EQ(list.getTotalPrice(), 43.60); // p:21.80 x q:2
+    listName.addItem(vino);
+    EXPECT_EQ(listName.getTotalPrice(), 43.60); // p:21.80 x q:2
+}
+
+TEST(ListTest, ShowList){
+    List listName("Spesa");
+    Item vino("Vino", 5, 2, 2026, "Chianti", Category::Alcolici, 1, 21.80, false);
+    Item cartaIG("Carta Igienica", 5, 2, 2026, "Rotoloni Regina", Category::Non_alimentari, 2, 0.90, true);
+    listName.addItem(vino);
+    listName.addItem(cartaIG);
+    EXPECT_EQ(listName.showList(), "Carta Igienica x 2\n"
+                                   "Vino x 1\n");
 }

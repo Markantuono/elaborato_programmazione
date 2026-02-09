@@ -11,7 +11,7 @@ TEST(ItemTest, Creation){
     EXPECT_EQ(vino.getQuantity(), 1);
     EXPECT_EQ(vino.getPrice(), 21.80);
     EXPECT_EQ(vino.isPurchased(), false);
-    EXPECT_EQ(vino.getInfo(), "5/2/2026 , Chianti : listaIngredienti");
+    EXPECT_EQ(vino.getInfo(), "5/2/2026 , Chianti");
 }
 
 TEST(ItemTest, InvalidYear){
@@ -44,14 +44,14 @@ TEST(ItemTest, InvalidSetQuantity){
 
 TEST(ItemTest, SetPrice){
     Item carne("Carne", 5, 2, 2026, "Amadori", Category::Carne, 3, 1.50, false);
-    EXPECT_EQ(carne.getPrice(), 3);
+    EXPECT_EQ(carne.getPrice(), 4.50);
     carne.setQuantity(5);
-    EXPECT_EQ(carne.getPrice(), 5);
+    EXPECT_EQ(carne.getPrice(), 7.50);
 }
 
 TEST(ItemTest, InvalidSetPrice){
     Item carne("Carne", 5, 2, 2026, "Amadori", Category::Carne, 3, 1.50, false);
-    EXPECT_EQ(carne.getPrice(), 3);
+    EXPECT_EQ(carne.getPrice(), 4.50);
     EXPECT_THROW(carne.setPrice(0), std::invalid_argument);
 }
 
@@ -65,7 +65,7 @@ TEST(ItemTest, IsPurchased){
 TEST(ItemTest, GetInfo){
     Informations info(5, 2, 2026, "Chianti");
     Item vino("Vino", 5, 2, 2026, "Chianti", Category::Alcolici, 1, 21.80, false);
-    EXPECT_EQ(vino.getInfo(), "5/2/2026 , Chianti : listaIngredienti");
+    EXPECT_EQ(vino.getInfo(), "5/2/2026 , Chianti");
 }
 
 TEST(ItemTest, MultipleItems){
