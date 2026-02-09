@@ -11,17 +11,17 @@ void Informations::setDate(int d, int m, int y){
             days[1] = 29;  // anno bisestile
         }
         if(m<0 || m>12){
-            std::invalid_argument("Mese non valido");
+            throw std::invalid_argument("Mese non valido");
         }
         if(d<0 || d>days[m-1]){
-            std::invalid_argument("Giorno non valido");
+            throw std::invalid_argument("Giorno non valido");
         }
         day = d;
         month = m;
         year = y;
     }
     else{
-        std::invalid_argument("Anno non valido");
+        throw std::invalid_argument("Anno non valido");
     }
 };
 

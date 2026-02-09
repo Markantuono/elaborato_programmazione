@@ -40,7 +40,7 @@ TEST(UserTest, RemoveItemFromList){
     EXPECT_EQ(userName.getList("Spesa"), it);
     userName.removeItemFromList("Spesa", "Vino");
     EXPECT_EQ(it->getItemCount(), 0);
-    ASSERT_NE(userName.getList("Spesa"), nullptr);
+    ASSERT_NE(it, nullptr);
 }
 
 TEST(TestUser, GetName){
@@ -81,6 +81,7 @@ TEST(TestUser, ShareList){
     Chiara->showAllList();
     Chiara->removeItemFromList("Spesa","Vino");
     EXPECT_EQ(Chiara->getList("Spesa")->getItemCount(),2);
+    EXPECT_EQ(Niccolò->getList("Spesa")->getItemCount(),2);
 }
 
 TEST(UserTest, ShowSingleAndAllList){
